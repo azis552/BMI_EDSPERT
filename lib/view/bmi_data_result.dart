@@ -1,6 +1,7 @@
 import 'package:bmi/view/bmi_data_screen.dart';
 import 'package:flutter/material.dart';
 
+// ignore: camel_case_types
 class bmiResultScreen extends StatelessWidget {
   const bmiResultScreen({
     Key? key,
@@ -12,18 +13,16 @@ class bmiResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff0a0e21),
+      backgroundColor: const Color(0xff0a0e21),
       appBar: AppBar(
-        title: Text("BMI CALCULATOR"),
+        title: const Text("BMI CALCULATOR"),
       ),
       body: Column(children: [
-        Expanded(
-            child: Container(
-          child: Text(
-            "Hasil Perhitungan",
-            style: TextStyle(
-                fontSize: 26, fontWeight: FontWeight.bold, color: Colors.white),
-          ),
+        const Expanded(
+            child: Text(
+          "Hasil Perhitungan",
+          style: TextStyle(
+              fontSize: 26, fontWeight: FontWeight.bold, color: Colors.white),
         )),
         Expanded(
           flex: 11,
@@ -34,15 +33,16 @@ class bmiResultScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
+                    // ignore: unnecessary_string_interpolations
                     "$hasil",
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
                   Text(
                     bmi.toStringAsFixed(1).toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 87,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
@@ -50,7 +50,7 @@ class bmiResultScreen extends StatelessWidget {
                   Text(
                     "Your BMI result is $hasil ",
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 26, color: Colors.white),
+                    style: const TextStyle(fontSize: 26, color: Colors.white),
                   )
                 ],
               ),
@@ -64,7 +64,7 @@ class bmiResultScreen extends StatelessWidget {
           child: Container(
             height: 50,
             color: Colors.redAccent,
-            child: Center(
+            child: const Center(
                 child: Text(
               "Hitung Ulang",
               style: TextStyle(
