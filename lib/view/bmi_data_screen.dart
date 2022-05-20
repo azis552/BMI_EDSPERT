@@ -3,6 +3,7 @@
 import 'dart:math';
 
 import 'package:bmi/constant/constant.dart';
+import 'package:bmi/helpers/bmi_calculator.dart';
 import 'package:bmi/view/bmi_data_result.dart';
 import 'package:flutter/material.dart';
 
@@ -30,28 +31,6 @@ class _bmiDataScreenState extends State<bmiDataScreen> {
     }
 
     return bmi;
-  }
-
-  String hasil = "normal";
-  String keputusan(bmi) {
-    if (bmi < 16.0) {
-      hasil = "Underweight (Severe thinness)";
-    } else if (bmi >= 16.0 && bmi <= 16.9) {
-      hasil = "Underweight (Moderate thinness)";
-    } else if (bmi >= 17.0 && bmi <= 18.4) {
-      hasil = "Underweight (Mild Thinness)";
-    } else if (bmi >= 18.5 && bmi <= 24.9) {
-      hasil = "Normal Range";
-    } else if (bmi >= 25.0 && bmi <= 29.9) {
-      hasil = "Normal Range";
-    } else if (bmi >= 30.0 && bmi <= 34.9) {
-      hasil = "Obese (class I)";
-    } else if (bmi >= 35.0 && bmi <= 39.9) {
-      hasil = "Obese (class II)";
-    } else if (bmi >= 40) {
-      hasil = "Obese (class III)";
-    }
-    return hasil;
   }
 
   @override
@@ -254,14 +233,16 @@ class _bmiDataScreenState extends State<bmiDataScreen> {
           ),
           GestureDetector(
             onTap: () {
-              // ignore: avoid_print
-              print(calculateBMI());
-              // ignore: avoid_print
-              print(keputusan(calculateBMI()));
+              final bmiCalculator = BmiCalculator(
+                  height: height, weight: weight); // ignore: avoid_print
+              bmiCalculator.calculateBMI();
+              bmiCalculator.keputusan(bmiCalculator.bmi!);
               Navigator.of(context).push(MaterialPageRoute(
                 builder: ((context) {
                   return bmiResultScreen(
-                      bmi: calculateBMI(), hasil: keputusan(calculateBMI()));
+                    bmi: bmiCalculator.bmi!,
+                    hasil: bmiCalculator.hasil!,
+                  );
                 }),
               ));
             },
