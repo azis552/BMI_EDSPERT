@@ -1,3 +1,4 @@
+import 'package:bmi/constant/constant.dart';
 import 'package:bmi/view/bmi_data_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class bmiResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff0a0e21),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("BMI CALCULATOR"),
       ),
@@ -22,7 +23,7 @@ class bmiResultScreen extends StatelessWidget {
             child: Text(
           "Hasil Perhitungan",
           style: TextStyle(
-              fontSize: 26, fontWeight: FontWeight.bold, color: Colors.white),
+              fontSize: 26, fontWeight: FontWeight.bold, color: primaryColor),
         )),
         Expanded(
           flex: 11,
@@ -38,19 +39,19 @@ class bmiResultScreen extends StatelessWidget {
                     style: const TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: primaryColor),
                   ),
                   Text(
                     bmi.toStringAsFixed(1).toString(),
                     style: const TextStyle(
                         fontSize: 87,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: primaryColor),
                   ),
                   Text(
                     "Your BMI result is $hasil ",
                     textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 26, color: Colors.white),
+                    style: const TextStyle(fontSize: 26, color: primaryColor),
                   )
                 ],
               ),
@@ -63,14 +64,16 @@ class bmiResultScreen extends StatelessWidget {
           },
           child: Container(
             height: 50,
-            color: Colors.redAccent,
-            child: const Center(
+            margin: EdgeInsets.all(15),
+            decoration: BoxDecoration(
+                color: Colors.blue, borderRadius: BorderRadius.circular(24)),
+            child: Center(
                 child: Text(
-              "Hitung Ulang",
+              "Hitung Lagi",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 25,
-                color: Colors.white,
+                color: primaryColor,
               ),
             )),
           ),
